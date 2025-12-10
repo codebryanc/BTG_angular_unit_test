@@ -17,22 +17,24 @@ describe('Environment Production', () => {
     expect(isProduction).toBe(true);
   });
 
-  it('should have appName defined', () => {
-    // Arrange - Act
-    const appName = environment.appName;
+  describe('info_version', () => {
+    it('should have appName defined', () => {
+      // Arrange - Act
+      const appName = environment.appName;
 
-    // Assert
-    expect(appName).toBeDefined();
-    expect(appName).toBe('BTG Angular Unit Test');
-  });
+      // Assert
+      expect(appName).toBeDefined();
+      expect(appName).toBe('BTG Angular Unit Test');
+    });
 
-  it('should have version defined', () => {
-    // Arrange - Act
-    const version = environment.version;
+    it('should have version defined', () => {
+      // Arrange - Act
+      const version = environment.version;
 
-    // Assert
-    expect(version).toBeDefined();
-    expect(version).toBe('1.0.0');
+      // Assert
+      expect(version).toBeDefined();
+      expect(version).toBe('1.0.0');
+    });
   });
 
   it('should have enableDebugTools set to false in production', () => {

@@ -6,13 +6,13 @@
 echo "🧪 Ejecutando pruebas unitarias con cobertura..."
 echo ""
 
-# Ejecutar tests con timeout automático - se cierra después de completar
-(npm test -- --coverage & TEST_PID=$!; sleep 5; kill $TEST_PID 2>/dev/null)
+# Ejecutar tests con cobertura usando Jasmine/Karma
+ng test --no-watch --code-coverage --browsers=ChromeHeadless
 
 # Verificar si el comando fue exitoso
 if [ $? -eq 0 ]; then
     echo ""
-    echo "✅ Algunos test completados exitosamente"
+    echo "✅ Tests completados exitosamente"
     echo ""
     echo "📊 Reporte de cobertura generado en: coverage/angular-unit-test/"
     echo ""

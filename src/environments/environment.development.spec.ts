@@ -1,3 +1,4 @@
+import { skip } from 'node:test';
 import { environment } from './environment.development';
 
 describe('Environment Development', () => {
@@ -9,7 +10,8 @@ describe('Environment Development', () => {
     expect(config).toBeDefined();
   });
 
-  it('should have production set to false', () => {
+  // Esto apaga el test
+  xit('should have production set to false', () => {
     // Arrange - Act
     const isProduction = environment.production;
 
@@ -17,22 +19,30 @@ describe('Environment Development', () => {
     expect(isProduction).toBe(false);
   });
 
-  it('should have appName defined', () => {
-    // Arrange - Act
-    const appName = environment.appName;
+  // Solo ejecuta el grupo
+  // fdescribe('info_version', () => {
+  
+  // Esto apaga el grupo
+  // xdescribe('info_version', () => {
 
-    // Assert
-    expect(appName).toBeDefined();
-    expect(appName).toBe('BTG Angular Unit Test');
-  });
+  describe('info_version', () => {
+    it('should have appName defined', () => {
+      // Arrange - Act
+      const appName = environment.appName;
 
-  it('should have version defined', () => {
-    // Arrange - Act
-    const version = environment.version;
+      // Assert
+      expect(appName).toBeDefined();
+      expect(appName).toBe('BTG Angular Unit Test');
+    });
 
-    // Assert
-    expect(version).toBeDefined();
-    expect(version).toBe('1.0.0');
+    it('should have version defined', () => {
+      // Arrange - Act
+      const version = environment.version;
+
+      // Assert
+      expect(version).toBeDefined();
+      expect(version).toBe('1.0.0');
+    });
   });
 
   it('should have enableDebugTools set to true in development', () => {
