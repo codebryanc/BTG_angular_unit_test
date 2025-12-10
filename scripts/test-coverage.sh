@@ -12,7 +12,7 @@ echo ""
 # Verificar si el comando fue exitoso
 if [ $? -eq 0 ]; then
     echo ""
-    echo "✅ Tests completados exitosamente"
+    echo "✅ Algunos test completados exitosamente"
     echo ""
     echo "📊 Reporte de cobertura generado en: coverage/angular-unit-test/"
     echo ""

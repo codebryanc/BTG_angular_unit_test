@@ -1,4 +1,5 @@
 import { Component, signal } from '@angular/core';
+import { environment } from '../../../../environments/environment.development';
 
 @Component({
   selector: 'app-root',
@@ -7,5 +8,6 @@ import { Component, signal } from '@angular/core';
   styleUrl: './app.scss'
 })
 export class App {
-  protected readonly title = signal('angular-unit-test');
+  protected readonly title = signal(environment.appName);
+  protected readonly version = environment.version;
 }

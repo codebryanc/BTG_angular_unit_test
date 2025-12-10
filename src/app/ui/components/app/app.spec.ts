@@ -20,10 +20,16 @@ describe('App', () => {
     expect((app as any).title).toBeDefined();
   });
 
-  it('should have correct title value', () => {
+  it('should have correct title value from environment', () => {
     const fixture = TestBed.createComponent(App);
     const app = fixture.componentInstance;
-    expect((app as any).title()).toBe('angular-unit-test');
+    expect((app as any).title()).toBe('BTG Angular Unit Test');
+  });
+
+  it('should have version from environment', () => {
+    const fixture = TestBed.createComponent(App);
+    const app = fixture.componentInstance;
+    expect((app as any).version).toBe('1.0.0');
   });
 
   it('should render content', async () => {
@@ -31,7 +37,24 @@ describe('App', () => {
     fixture.detectChanges();
     await fixture.whenStable();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.textContent).toContain('Bienvenido a BTG Angular Unit Test');
+    expect(compiled.textContent).toContain('BTG Angular Unit Test');
+  });
+
+  it('should render description with version', async () => {
+    const fixture = TestBed.createComponent(App);
+    fixture.detectChanges();
+    await fixture.whenStable();
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.textContent).toContain('Proyecto de pruebas unitarias con Angular');
+    expect(compiled.textContent).toContain('1.0.0');
+  });
+
+  it('should render version from environment', async () => {
+    const fixture = TestBed.createComponent(App);
+    fixture.detectChanges();
+    await fixture.whenStable();
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.textContent).toContain('Versión: 1.0.0');
   });
 
   it('should render BTG logo', async () => {
